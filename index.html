@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Rock-Paper-Scissors</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+        <link rel = "icon" href = "Src/Logo.png"
+    </head>
+
+    <body>
+        <div id="changeOrientation">
+            <img id="phone" src="Src/Phone.png">
+            <h1>Please rotate your device to landscape!</h1>
+        </div>
+        <header>
+            <div class="title">
+                <span>R</span>
+                <span>O</span>
+                <span>C</span>
+                <span>K</span>
+                <span>-</span>
+                <span>P</span>
+                <span>A</span>
+                <span>P</span>
+                <span>E</span>
+                <span>R</span>
+                <span>-</span>
+                <span>S</span>
+                <span>C</span>
+                <span>I</span>
+                <span>S</span>
+                <span>S</span>
+                <span>O</span>
+                <span>R</span>
+                <span>S</span>
+            </div>
+        </header>
+        <main>
+            <section class="playerSection">
+                <div class="sectionTitleContainer">
+                    <h2 class="sectionTitle">PLAYER</h2>
+                </div>
+                <div class="imageContainer" id="imageContainerPlayer">
+                    <img class="itemImage" id="playerImage" src="Src/Rock.png">
+                </div>
+                <div class="playersButtons">
+                    <div class="playerButton" id="rockButton">
+                        <img src="Src/Rock.png">
+                    </div>
+                    <div class="playerButton" id="paperButton">
+                        <img src="Src/Paper.png">
+                    </div>
+                    <div class="playerButton" id="scissorsButton">
+                        <img src="Src/Scissors.png">
+                    </div>
+                </div>
+            </section>
+            <section class="scoreSection">
+                <div class="sectionTitleContainer">
+                    <h2 class="sectionTitle">SCORE</h2>
+                </div>
+                <div id="scoreContainer">
+                    <h3 id="score">0 - 0</h3>
+                </div>
+                <div id="scoreHistoryContainer">
+                    <div class="scoreHistory" >
+                        <div class="scoreHistory1">
+                            <img src="Src/Scissors.png">
+                            <span>V.S.</span>
+                            <img id="scoreAI" src="Src/Paper.png">
+                        </div>
+                        <div class="scoreHistory2">
+                            <span>YOU WON!</span>
+                        </div>
+                        <div class="scoreHistory3">
+                            <span>1 - 0</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="AISection">
+                <div class="sectionTitleContainer">
+                    <h2 class="sectionTitle">COMPUTER</h2>
+                </div>
+                <div class="imageContainer" id="imageContainerAI">
+                    <img class="itemImage" id="AIImage" src="Src/Rock.png">
+                </div>
+                <div id="restartButtonContainer">
+                    <div id="restartButton">
+                        <p>RESTART!</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div id="CopyRightContainer">
+                <p>StefanIT</p>
+                <p>© 2023 Rock Paper Scissors</p>
+            </div>
+            <div id="FullScreenContainer">
+                <img id="FullScreenButton" src="Src/FullScreen.png">
+            </div>
+        </footer>
+
+        <script src="app.js"></script>
+    </body>
+</html>
