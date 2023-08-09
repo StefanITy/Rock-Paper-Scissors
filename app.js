@@ -36,20 +36,27 @@ scissorsButton.addEventListener("click", function() {playerMove=3; playItem("Src
 restartButton.addEventListener("click", Restart);
 
 
-
+let canPlay=true;
 
 
 function playItem(src){
-    playItemAI();
-    imageContainerPlayer.firstElementChild.src="Src/Rock.png";
-    imageContainerPlayer.classList.add("playAnimationPlayer");
+    if(canPlay){
+        rockButton.style.opacity="50%";
+        paperButton.style.opacity="50%";
+        scissorsButton.style.opacity="50%";
+        restartButton.style.opacity="50%";
+        canPlay=false;
+        playItemAI();
+        imageContainerPlayer.firstElementChild.src="Src/Rock.png";
+        imageContainerPlayer.classList.add("playAnimationPlayer");
 
 
-    setTimeout(function() {
-        imageContainerPlayer.firstElementChild.src=src;
-        imageContainerPlayer.classList.remove("playAnimationPlayer");
-        RoundOver();
-    }, 750);
+        setTimeout(function() {
+            imageContainerPlayer.firstElementChild.src=src;
+            imageContainerPlayer.classList.remove("playAnimationPlayer");
+            RoundOver();
+        }, 750);
+    }
 }
 
 function playItemAI(){
@@ -108,6 +115,11 @@ function RoundOver(){
     score.innerHTML=playerScore.toString()+" - "+AIScore.toString();
     rundsOver++;
     scoreHistoryApend();
+    rockButton.style.opacity="100%";
+    paperButton.style.opacity="100%";
+    scissorsButton.style.opacity="100%";
+    restartButton.style.opacity="100%";
+    canPlay=true;
 }
 
 let scoreHistoryContainer=document.getElementById("scoreHistoryContainer");
@@ -184,19 +196,21 @@ function scoreHistoryBlockSetUp(){
 
 
 function Restart(){
-    playerScore=0;
-    AIScore=0;
-    score.innerHTML=playerScore.toString()+" - "+AIScore.toString();
+    if(canPlay){
+        playerScore=0;
+        AIScore=0;
+        score.innerHTML=playerScore.toString()+" - "+AIScore.toString();
 
-    imageContainerPlayer.firstElementChild.src="Src/Rock.png";
-    imageContainerAI.firstElementChild.src="Src/Rock.png";
+        imageContainerPlayer.firstElementChild.src="Src/Rock.png";
+        imageContainerAI.firstElementChild.src="Src/Rock.png";
 
-    rundsOver=0;
-    let child = scoreHistoryContainer.lastElementChild;
-        while (child) {
-            scoreHistoryContainer.removeChild(child);
-            child = scoreHistoryContainer.lastElementChild;
-        }
+        rundsOver=0;
+        let child = scoreHistoryContainer.lastElementChild;
+            while (child) {
+                scoreHistoryContainer.removeChild(child);
+                child = scoreHistoryContainer.lastElementChild;
+            }
+    }
 }
 
 
