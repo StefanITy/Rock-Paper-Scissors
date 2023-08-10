@@ -30,9 +30,9 @@ let AIScore=0;
 let playerMove=0;
 let AIMove=0;
 
-rockButton.addEventListener("click", function() {playerMove=1;  playItem("Src/Rock.png");});
-paperButton.addEventListener("click", function() {playerMove=2; playItem("Src/Paper.png");});
-scissorsButton.addEventListener("click", function() {playerMove=3; playItem("Src/Scissors.png");});
+rockButton.addEventListener("click", function() {playerMove=1;  playItem("./Src/Rock.png");});
+paperButton.addEventListener("click", function() {playerMove=2; playItem("./Src/Paper.png");});
+scissorsButton.addEventListener("click", function() {playerMove=3; playItem("./Src/Scissors.png");});
 restartButton.addEventListener("click", Restart);
 
 
@@ -47,7 +47,7 @@ function playItem(src){
         restartButton.style.opacity="50%";
         canPlay=false;
         playItemAI();
-        imageContainerPlayer.firstElementChild.src="Src/Rock.png";
+        imageContainerPlayer.firstElementChild.src="./Src/Rock.png";
         imageContainerPlayer.classList.add("playAnimationPlayer");
 
 
@@ -61,17 +61,17 @@ function playItem(src){
 
 function playItemAI(){
     AIMove=Math.floor(Math.random() * 3) + 1;
-    imageContainerAI.firstElementChild.src="Src/Rock.png";
+    imageContainerAI.firstElementChild.src="./Src/Rock.png";
     imageContainerAI.classList.add("playAnimationAI");
 
 
     setTimeout(function() {
         switch(AIMove){
-            case 1:imageContainerAI.firstElementChild.src="Src/Rock.png";
+            case 1:imageContainerAI.firstElementChild.src="./Src/Rock.png";
                 break;
-            case 2:imageContainerAI.firstElementChild.src="Src/Paper.png";
+            case 2:imageContainerAI.firstElementChild.src="./Src/Paper.png";
                 break;
-            case 3:imageContainerAI.firstElementChild.src="Src/Scissors.png";
+            case 3:imageContainerAI.firstElementChild.src="./Src/Scissors.png";
                 break;
         }
         imageContainerAI.classList.remove("playAnimationAI");
@@ -160,20 +160,20 @@ function scoreHistoryBlockSetUp(){
     let scoreHistorWinText=clonedScoreHistoryDiv.children[1].children[0];
     let scoreHistorScoreText=clonedScoreHistoryDiv.children[2].children[0];
     switch(playerMove){
-        case 1:scoreHistoryPlayerMove.src="Src/Rock.png";
+        case 1:scoreHistoryPlayerMove.src="./Src/Rock.png";
             break;
-        case 2:scoreHistoryPlayerMove.src="Src/Paper.png";
+        case 2:scoreHistoryPlayerMove.src="./Src/Paper.png";
             break;
-        case 3:scoreHistoryPlayerMove.src="Src/Scissors.png";
+        case 3:scoreHistoryPlayerMove.src="./Src/Scissors.png";
             break;
     }
 
     switch(AIMove){
-        case 1:scoreHistorAIMove.src="Src/Rock.png";
+        case 1:scoreHistorAIMove.src="./Src/Rock.png";
             break;
-        case 2:scoreHistorAIMove.src="Src/Paper.png";
+        case 2:scoreHistorAIMove.src="./Src/Paper.png";
             break;
-        case 3:scoreHistorAIMove.src="Src/Scissors.png";
+        case 3:scoreHistorAIMove.src="./Src/Scissors.png";
             break;
     }
 
@@ -201,8 +201,8 @@ function Restart(){
         AIScore=0;
         score.innerHTML=playerScore.toString()+" - "+AIScore.toString();
 
-        imageContainerPlayer.firstElementChild.src="Src/Rock.png";
-        imageContainerAI.firstElementChild.src="Src/Rock.png";
+        imageContainerPlayer.firstElementChild.src="./Src/Rock.png";
+        imageContainerAI.firstElementChild.src="./Src/Rock.png";
 
         rundsOver=0;
         let child = scoreHistoryContainer.lastElementChild;
@@ -227,7 +227,7 @@ function SwitchFullScreen(){
         } else if (document.documentElement.msRequestFullscreen) { /* IE/Edge */
             document.documentElement.msRequestFullscreen();
         }
-        document.getElementById('FullScreenButton').src="Src/WindowScreen.png";
+        document.getElementById('FullScreenButton').src="./Src/WindowScreen.png";
     } else { // We are in fullscreen, let's exit
         if (document.exitFullscreen) {
             document.exitFullscreen();
@@ -238,7 +238,7 @@ function SwitchFullScreen(){
         } else if (document.msExitFullscreen) { /* IE/Edge */
             document.msExitFullscreen();
         }
-        document.getElementById('FullScreenButton').src="Src/FullScreen.png";
+        document.getElementById('FullScreenButton').src="./Src/FullScreen.png";
     }
 }
 
